@@ -16,7 +16,7 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
+//Because if a function does not have a variable, it can look outwards
 
 
 
@@ -28,9 +28,12 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  let sum = 0
+  for (let i=0; i < num; i++) {
+    sum += i+1
+  }
+  return sum
   }
  
 
@@ -56,8 +59,12 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(obj1){
+    let stringy = []
+    obj1.forEach(para => {
+      stringy.push(`name: ${para.animal_name}, scientific: ${para.scientific_name}`)
+    })
+    return stringy
   }
   
 
@@ -67,8 +74,12 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(obj2){
+    let stringer = []
+    obj2.map((a, b) => {
+      stringer.push(a.animal_name.toLowerCase())
+    })
+    return stringer
   }
   
   
@@ -77,8 +88,11 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(obj3){
+    obj3.filter((a, b) => {
+      return obj3[b].population < 5
+    })
+    return obj3
   }
   
 
@@ -88,8 +102,18 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(obj4){
+    let red = 0
+    let up = 0
+    let forSomeReasonItWillNotAddTheLastOneSoHereIsAVariableForThat = obj4.length - 1
+
+    obj4.reduce(() => {
+     red += obj4[up].population
+     up += 1
+    })
+
+    red += obj4[forSomeReasonItWillNotAddTheLastOneSoHereIsAVariableForThat].population
+    return red
   }
   
   
@@ -101,8 +125,10 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
+  function consume(a, b, cb){
+    cb = function (a, b) {
+      return a+b
+    }
   }
  
   
